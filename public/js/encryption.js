@@ -1,5 +1,4 @@
-// ====== ENCRYPTION FUNCTIONS ======
-
+// ====== ENCRYPTION FUNCTIONS ====== 
 // Função para criptografar dados usando uma chave simples
 function criptografar(dados, chave) {
   let resultado = '';
@@ -98,19 +97,3 @@ function recuperarChave() {
 function limparChave() {
   localStorage.removeItem('encryptionKey');
 }
-
-// Exportar funções
-export {
-  criptografar,
-  descriptografar,
-  gerarHashSHA256,
-  validarIntegridade,
-  criptografarCPF,
-  descriptografarCPF,
-  criptografarDadosPaciente,
-  descriptografarDadosPaciente,
-  gerarChaveAleatoria,
-  armazenarChave,
-  recuperarChave,
-  limparChave
-};
