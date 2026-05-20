@@ -91,7 +91,7 @@ function showPage(pageId) {
   // Atualizar sidebar
   const sidebar_items = document.querySelectorAll('#sidebar li');
   sidebar_items.forEach(item => item.classList.remove('active'));
-  
+
   // Marcar item ativo (aproximado)
   const itemIndex = Array.from(sidebar_items).findIndex(item => 
     item.textContent.toLowerCase().includes(pageId)
