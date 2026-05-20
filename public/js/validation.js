@@ -1,3 +1,4 @@
+```javascript
 // ====== VALIDATION FUNCTIONS ======
 // Validar email
 function validarEmail(email) {
@@ -140,3 +141,4 @@ function validarFormularioPaciente(nome, cpf, telefone, email) {
   }
   return { valido: true, mensagem: '' };
 }
+```
