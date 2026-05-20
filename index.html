@@ -1,128 +1,115 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AtivaMente+ - Gestão de Clínica</title>
-  <link rel="stylesheet" href="public/css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AtivaMente+ - Gestão de Clínica</title>
+<link rel="stylesheet" href="public/css/style.css">
 </head>
 <body>
-
-  <!-- ====== LOADING SCREEN ====== -->
-  <div id="LS">
-    <img src="public/images/logomarca.jpeg" alt="Logo AtivaMente+">
-    <p>Carregando...</p>
-  </div>
-
-  <!-- ====== LOGIN/SIGNUP SCREEN ====== -->
-  <div id="LG">
-    <form id="loginForm">
-      <h2>Login</h2>
-      <input type="email" id="loginEmail" placeholder="E-mail" required>
-      <input type="password" id="loginPassword" placeholder="Senha" required>
-      <button type="submit">Entrar</button>
-      <p>Não tem conta? <a href="#" onclick="showSignUp(); return false;">Criar conta</a></p>
-    </form>
-
-    <form id="signUpForm">
-      <h2>Criar Conta</h2>
-      <input type="text" id="signUpName" placeholder="Nome completo" required>
-      <input type="email" id="signUpEmail" placeholder="E-mail" required>
-      <input type="password" id="signUpPassword" placeholder="Senha (mínimo 6 caracteres)" required>
-      <input type="password" id="signUpPasswordConfirm" placeholder="Confirmar senha" required>
-      <button type="submit">Criar Conta</button>
-      <p>Já tem conta? <a href="#" onclick="showLogin(); return false;">Fazer login</a></p>
-    </form>
-  </div>
-
-  <!-- ====== APP (SIDEBAR + MAIN) ====== -->
-  <div id="APP">
-    <div id="sidebar">
-      <img src="public/images/logomarca.jpeg" alt="Logo AtivaMente+">
-      <ul>
-        <li onclick="showPage('dashboard')">📊 Dashboard</li>
-        <li onclick="showPage('pacientes')">👥 Pacientes</li>
-        <li onclick="showPage('agenda')">📅 Agenda</li>
-        <li onclick="showPage('prontuario')">📋 Prontuário</li>
-        <li onclick="showPage('financeiro')">💰 Financeiro</li>
-        <li onclick="logout()">🚪 Sair</li>
-      </ul>
-    </div>
-
-    <div id="main-content">
-      <!-- DASHBOARD PAGE -->
-      <div id="page-dashboard" class="page active">
-        <h1>Dashboard</h1>
-        <p>Bem-vindo ao AtivaMente+!</p>
-        <p>Selecione uma opção no menu lateral para começar.</p>
-        <div style="margin-top: 30px;">
-          <h3>Resumo</h3>
-          <p>Total de pacientes: <strong id="totalPacientes">0</strong></p>
-          <p>Consultas hoje: <strong>0</strong></p>
-          <p>Faturamento do mês: <strong>R$ 0,00</strong></p>
-        </div>
-      </div>
-
-      <!-- PACIENTES PAGE -->
-      <div id="page-pacientes" class="page">
-        <h1>Pacientes</h1>
-        <button onclick="abrirModalPaciente()">➕ Novo Paciente</button>
-        <div id="pacientes-list" style="margin-top: 20px;"></div>
-      </div>
-
-      <!-- AGENDA PAGE -->
-      <div id="page-agenda" class="page">
-        <h1>Agenda</h1>
-        <div id="agenda-container">
-          <p>Agenda será implementada em breve.</p>
-        </div>
-      </div>
-
-      <!-- PRONTUÁRIO PAGE -->
-      <div id="page-prontuario" class="page">
-        <h1>Prontuário</h1>
-        <div id="prontuario-container">
-          <p>Prontuário será implementado em breve.</p>
-        </div>
-      </div>
-
-      <!-- FINANCEIRO PAGE -->
-      <div id="page-financeiro" class="page">
-        <h1>Financeiro</h1>
-        <div id="financeiro-container">
-          <p>Financeiro será implementado em breve.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ====== MODAL: NOVO PACIENTE ====== -->
-  <div id="modal-paciente" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="fecharModal('modal-paciente')">&times;</span>
-      <h2>Novo Paciente</h2>
-      <form id="form-paciente">
-        <input type="text" id="pac-nome" placeholder="Nome completo" required>
-        <input type="text" id="pac-cpf" placeholder="CPF (123.456.789-00)" required>
-        <input type="tel" id="pac-telefone" placeholder="Telefone (11)98765-4321">
-        <input type="email" id="pac-email" placeholder="E-mail">
-        <textarea id="pac-observacoes" placeholder="Observações"></textarea>
-        <button type="submit">Salvar Paciente</button>
-      </form>
-    </div>
-  </div>
-
-  <!-- ====== FIREBASE SCRIPTS ====== -->
-  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-storage.js"></script>
-
-  <!-- ====== APP SCRIPTS ====== -->
-  <script src="public/js/firebase-config.js"></script>
-  <script src="public/js/validation.js"></script>
-  <script src="public/js/encryption.js"></script>
-  <script src="public/js/app.js"></script>
-
+<!-- ====== LOADING SCREEN ====== -->
+<div id="LS">
+<img src="public/images/logomarca.jpeg" alt="Logo AtivaMente+">
+<p>Carregando...</p>
+</div>
+<!-- ====== LOGIN/SIGNUP SCREEN ====== -->
+<div id="LG">
+<form id="loginForm">
+<h2>Login</h2>
+<input type="email" id="loginEmail" placeholder="E-mail" required>
+<input type="password" id="loginPassword" placeholder="Senha" required>
+<button type="submit">Entrar</button>
+<p>Não tem conta? <a href="#" onclick="showSignUp(); return false;">Criar conta</a></p>
+</form>
+<form id="signUpForm">
+<h2>Criar Conta</h2>
+<input type="text" id="signUpName" placeholder="Nome completo" required>
+<input type="email" id="signUpEmail" placeholder="E-mail" required>
+<input type="password" id="signUpPassword" placeholder="Senha (mínimo 6 caracteres)" required>
+<input type="password" id="signUpPasswordConfirm" placeholder="Confirmar senha" required>
+<button type="submit">Criar Conta</button>
+<p>Já tem conta? <a href="#" onclick="showLogin(); return false;">Fazer login</a></p>
+</form>
+</div>
+<!-- ====== APP (SIDEBAR + MAIN) ====== -->
+<div id="APP">
+<div id="sidebar">
+<img src="public/images/logomarca.jpeg" alt="Logo AtivaMente+">
+<ul>
+<li onclick="showPage('dashboard')">📊 Dashboard</li>
+<li onclick="showPage('pacientes')">👥 Pacientes</li>
+<li onclick="showPage('agenda')">📅 Agenda</li>
+<li onclick="showPage('prontuario')">📋 Prontuário</li>
+<li onclick="showPage('financeiro')">💰 Financeiro</li>
+<li onclick="logout()">🚪 Sair</li>
+</ul>
+</div>
+<div id="main-content">
+<!-- DASHBOARD PAGE -->
+<div id="page-dashboard" class="page active">
+<h1>Dashboard</h1>
+<p>Bem-vindo ao AtivaMente+!</p>
+<p>Selecione uma opção no menu lateral para começar.</p>
+<div style="margin-top: 30px;">
+<h3>Resumo</h3>
+<p>Total de pacientes: <strong id="totalPacientes">0</strong></p>
+<p>Consultas hoje: <strong>0</strong></p>
+<p>Faturamento do mês: <strong>R$ 0,00</strong></p>
+</div>
+</div>
+<!-- PACIENTES PAGE -->
+<div id="page-pacientes" class="page">
+<h1>Pacientes</h1>
+<button onclick="abrirModalPaciente()">➕ Novo Paciente</button>
+<div id="pacientes-list" style="margin-top: 20px;"></div>
+</div>
+<!-- AGENDA PAGE -->
+<div id="page-agenda" class="page">
+<h1>Agenda</h1>
+<div id="agenda-container">
+<p>Agenda será implementada em breve.</p>
+</div>
+</div>
+<!-- PRONTUÁRIO PAGE -->
+<div id="page-prontuario" class="page">
+<h1>Prontuário</h1>
+<div id="prontuario-container">
+<p>Prontuário será implementado em breve.</p>
+</div>
+</div>
+<!-- FINANCEIRO PAGE -->
+<div id="page-financeiro" class="page">
+<h1>Financeiro</h1>
+<div id="financeiro-container">
+<p>Financeiro será implementado em breve.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- ====== MODAL: NOVO PACIENTE ====== -->
+<div id="modal-paciente" class="modal">
+<div class="modal-content">
+<span class="close" onclick="fecharModal('modal-paciente')">&times;</span>
+<h2>Novo Paciente</h2>
+<form id="form-paciente">
+<input type="text" id="pac-nome" placeholder="Nome completo" required>
+<input type="text" id="pac-cpf" placeholder="CPF (123.456.789-00)" required>
+<input type="tel" id="pac-telefone" placeholder="Telefone (11)98765-4321">
+<input type="email" id="pac-email" placeholder="E-mail">
+<textarea id="pac-observacoes" placeholder="Observações"></textarea>
+<button type="submit">Salvar Paciente</button>
+</form>
+</div>
+</div>
+<!-- ====== FIREBASE SCRIPTS ====== -->
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-storage.js"></script>
+<!-- ====== APP SCRIPTS ====== -->
+<script type="module" src="public/js/firebase-config.js"></script>
+<script type="module" src="public/js/validation.js"></script>
+<script type="module" src="public/js/encryption.js"></script>
+<script type="module" src="public/js/app.js"></script>
 </body>
 </html>
