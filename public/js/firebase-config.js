@@ -1,3 +1,4 @@
+```javascript
 // ====== FIREBASE CONFIGURATION ======
 const firebaseConfig = {
   apiKey: "AIzaSyDdQn-SeakKc8cLVATPjCW8x1RzvtjnIBs",
@@ -25,3 +26,4 @@ db.enablePersistence()
       console.log('The current browser does not support all of the features required to enable persistence');
     }
   });
+```
